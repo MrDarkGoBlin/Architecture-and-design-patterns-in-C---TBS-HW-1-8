@@ -68,12 +68,14 @@
     <Compile Include="Assets\Skripts\Conterollers\TimeController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\UpdateController.cs" />
     <Compile Include="Assets\Skripts\Interface\IExecute.cs" />
+    <Compile Include="Assets\Skripts\Interface\IUnits.cs" />
     <Compile Include="Assets\Skripts\ListExecuteObject.cs" />
-    <Compile Include="Assets\Skripts\Tests\TileDoing.cs" />
+    <Compile Include="Assets\Skripts\Tests\TileMoveZone.cs" />
     <Compile Include="Assets\Skripts\Units\Enemy\EnemyGuards.cs" />
     <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerGuards.cs" />
     <Compile Include="Assets\Skripts\Units\Units.cs" />
     <Compile Include="Assets\Skripts\Units\mathOfUnits\MathOfUnits.cs" />
+    <Compile Include="Assets\Skripts\factory\TileMoveZoneFactory.cs" />
     <None Include="Assets\Sprites\charactersSprites\Female adventurer\Tilesheet\character_femaleAdventurer_sheetHD.xml" />
     <None Include="Assets\Sprites\charactersSprites\Female person\Tilesheet\character_femalePerson_sheet.xml" />
     <None Include="Assets\Sprites\charactersSprites\Robot\Tilesheet\character_robot_sheet.xml" />

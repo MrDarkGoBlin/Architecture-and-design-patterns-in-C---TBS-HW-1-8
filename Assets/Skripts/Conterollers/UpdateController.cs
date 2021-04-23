@@ -7,8 +7,8 @@ namespace TBS
 {
     public class UpdateController : MonoBehaviour
     {
-        [SerializeField] private TileDoing _tileDoing;
-        [SerializeField] private Units[] _units;
+        [SerializeField] private TileMoveZone _tileDoing;
+        [SerializeField] private IUnits[] _units;
         private ListExecuteObject _listExecute;
         private InputController _imputController;
         private TimeController _timeController;
@@ -16,9 +16,10 @@ namespace TBS
         private void Start()
         {
             _units = Object.FindObjectsOfType<Units>();
+            _tileDoing = Object.FindObjectOfType<TileMoveZone>();
             _listExecute = new ListExecuteObject();
             _imputController = new InputController( _tileDoing);
-            _timeController = new TimeController(_imputController, _units);
+            _timeController = new TimeController(_imputController, _units, _tileDoing);
             _listExecute.AddExecuteObject(_imputController);
             _listExecute.AddExecuteObject(_timeController);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TBS
 {
-    internal abstract class Units : MonoBehaviour
+    internal abstract class Units : MonoBehaviour, IUnits
     {
         public abstract int GetLenghtStep();
         public abstract int GetNextStep();

@@ -8,11 +8,13 @@ namespace TBS
     internal class TimeController : IExecute
     {
         private InputController _inputController;
-        private Units[] _listUnits; // впоследствии переделаю в скриптовый массив(для создания диномичности) как с ListExecuteObject (это не оправдание, а скорее напоминание себе)
+        private TileMoveZone _tileMoveZone;
+        private IUnits[] _listUnits; // впоследствии переделаю в скриптовый массив(для создания диномичности) как с ListExecuteObject (это не оправдание, а скорее напоминание себе)
         private int _checStep;
 
-        public TimeController(InputController inputController, Units[] listUnits)
+        public TimeController(InputController inputController, IUnits[] listUnits, TileMoveZone tileMoveZone)
         {
+            _tileMoveZone = tileMoveZone;
             _inputController = inputController;
             _listUnits = listUnits;
         }
@@ -25,6 +27,7 @@ namespace TBS
                     _checStep = item.GetNextStep();
                     if (_checStep <= 0)
                     {
+                        _tileMoveZone.CreateMoveZone(item.GetPosition(), item.GetLenghtStep());
                         _inputController.SetUnit(item);
                         _inputController.SwitchDoing();
                     }

@@ -7,11 +7,11 @@ namespace TBS
 {
     internal class InputController : IExecute
     {
-        private TileDoing _tile;
-        private Units _unit;
+        private TileMoveZone _tile;
+        private IUnits _unit;
         private bool _doing;
 
-        public InputController(TileDoing tile)
+        public InputController(TileMoveZone tile)
         {
             _tile = tile;
             _doing = false;
@@ -33,7 +33,7 @@ namespace TBS
 
         public bool getDoing() => _doing;
         public void SwitchDoing() => _doing = !_doing;
-        public void SetUnit(Units newUnit) => _unit = newUnit;
+        public void SetUnit(IUnits newUnit) => _unit = newUnit;
     }
     
 
