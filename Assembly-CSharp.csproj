@@ -68,8 +68,10 @@
     <Compile Include="Assets\Skripts\Conterollers\TimeController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\UpdateController.cs" />
     <Compile Include="Assets\Skripts\Interface\IExecute.cs" />
+    <Compile Include="Assets\Skripts\Interface\IFactory.cs" />
     <Compile Include="Assets\Skripts\Interface\IUnits.cs" />
     <Compile Include="Assets\Skripts\ListExecuteObject.cs" />
+    <Compile Include="Assets\Skripts\Tests\TileGround.cs" />
     <Compile Include="Assets\Skripts\Tests\TileMoveZone.cs" />
     <Compile Include="Assets\Skripts\Units\Enemy\EnemyGuards.cs" />
     <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerGuards.cs" />

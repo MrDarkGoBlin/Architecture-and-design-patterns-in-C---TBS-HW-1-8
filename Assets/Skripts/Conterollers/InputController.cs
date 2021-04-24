@@ -10,6 +10,7 @@ namespace TBS
         private TileMoveZone _tile;
         private IUnits _unit;
         private bool _doing;
+        private Vector3 _checkSwitchPosition;
 
         public InputController(TileMoveZone tile)
         {
@@ -23,11 +24,15 @@ namespace TBS
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _unit.SetPosition(_tile.Move(_unit.GetPosition()));
-                    _unit.ReturnStep();
-                    SwitchDoing();
-                }
-                SwitchDoing();
+                    _checkSwitchPosition = _tile.Move(_unit.GetPosition());
+                    if (_checkSwitchPosition != _unit.GetPosition())
+                    {
+                        _unit.SetPosition(_checkSwitchPosition);
+                        _unit.ReturnStep();
+                        SwitchDoing();
+                    }
+                    
+                }                
             }     
         }
 
