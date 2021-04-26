@@ -5,8 +5,8 @@ namespace TBS
 {
     public class UpdateController : MonoBehaviour
     {
-        [SerializeField] private TileMoveZone _tileDoing;
-        [SerializeField] private IUnits[] _units;
+        private TileMoveZone _tileDoing;
+        private IUnits[] _units;
         private ListExecuteObject _listExecute;
         private InputController _imputController;
         private TimeController _timeController;
