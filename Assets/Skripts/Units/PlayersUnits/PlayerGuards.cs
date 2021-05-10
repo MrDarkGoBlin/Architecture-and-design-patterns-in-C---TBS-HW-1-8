@@ -7,21 +7,30 @@ namespace TBS
 {
     internal class PlayerGuards : Units
     {
+        private PlayerGuards _playerGuards;
         private MathOfUnits _mathOfUnits;
+        private ListUnits _listUnits;
 
-        [SerializeField] internal float _maxHP;
-        [SerializeField] internal int _speadStep;
-        [SerializeField] internal int _lengthStep;        
-        [SerializeField] internal float _DEF;
-        [SerializeField] internal float _ATK;
-        internal float _HP;
-        [SerializeField] internal int _nextStep; // не определяестя через флоат и дельта тайм, потому что в последствии персонажи будут ходить  по очереди.
+        [SerializeField] private float _maxHP;
+        [SerializeField] private int _speadStep;
+        [SerializeField] private int _lengthStep;        
+        [SerializeField] private float _DEF;
+        [SerializeField] private float _ATK;
+        [SerializeField] private float _HP;
+        [SerializeField] private int _nextStep;
+        [SerializeField] private int _zoneAtack;
 
         private void Start()
         {
             ReturnStep();
             _HP = _maxHP;
-            _mathOfUnits = new MathOfUnits();            
+            _mathOfUnits = new MathOfUnits();
+            _playerGuards = GetComponent<PlayerGuards>();
+        }
+
+        public override void Inicialisation(ListUnits listUnits)
+        {
+            _listUnits = listUnits;
         }
 
         public override int GetLenghtStep() => _lengthStep;
@@ -30,9 +39,23 @@ namespace TBS
         public override void ReturnStep() => _nextStep = _speadStep;
         public override float GetHP() => _HP;
         public override float GetATK() => _ATK;
+        public override int GetZoneAtack() => _zoneAtack;
         public override Vector3 GetPosition() => transform.position;
         public override void SetPosition(Vector3 newpos) => transform.position = newpos;
+        public override void SetDamage(float damage) 
+        { 
+            _HP = _mathOfUnits.MinusHP(_HP, _DEF, damage);
+            if (_HP == 0)
+            {
+                Death();
+            }
+        }
 
+        private void Death()
+        {
+            _listUnits.ClearUnits(_playerGuards);
+            Destroy(this.gameObject);
+        }
 
     }
 }

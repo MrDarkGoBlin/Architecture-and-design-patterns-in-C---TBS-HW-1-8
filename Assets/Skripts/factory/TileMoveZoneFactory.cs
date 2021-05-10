@@ -24,7 +24,7 @@ namespace TBS
         }
 
 
-        public void CreateZoneOfMuve(Vector3 playerPosition, int langthStep, IUnits[] units)
+        public void CreateZoneOfMuve(Vector3 playerPosition, int langthStep, ListUnits units)
         {
             var playerIntPoint = _moveZone.WorldToCell(playerPosition);
             _firstPoint = new Vector3Int(playerIntPoint.x - langthStep, playerIntPoint.y - langthStep, 0);
@@ -37,10 +37,10 @@ namespace TBS
                     if (_groundZone.GetTile(new Vector3Int(i, j, 0)) != null)
                     {
                         _moveZone.SetTile(new Vector3Int(i, j, 0), _greenZone);
-                        foreach (var item in units)
+                        for (int item = 0; item < units.Length; item++)
                         {
 
-                            _point = _moveZone.WorldToCell(item.GetPosition());
+                            _point = _moveZone.WorldToCell(units[item].GetPosition());
                             if (_point.x == i && _point.y == j)
                             {
                                 _moveZone.SetTile(new Vector3Int(i, j, 0), _radZone);

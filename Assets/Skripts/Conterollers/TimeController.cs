@@ -8,14 +8,17 @@ namespace TBS
     internal class TimeController : IExecute
     {
         private InputController _inputController;
-        private TileMoveZone _tileMoveZone;
-        private IUnits[] _listUnits; // впоследствии переделаю в скриптовый массив(для создания диномичности) как с ListExecuteObject (это не оправдание, а скорее напоминание себе)
+        private TileSpecialZone _tileSpecialZone;
+        private ListUnits _listUnits; // впоследствии переделаю в скриптовый массив(для создания диномичности) как с ListExecuteObject (это не оправдание, а скорее напоминание себе)
         private int _checStep;
         private int lastRoundForCycle;
 
-        public TimeController(InputController inputController, IUnits[] listUnits, TileMoveZone tileMoveZone)
+
+        
+
+        public TimeController(InputController inputController, ListUnits listUnits, TileSpecialZone tileSpecialZone)
         {
-            _tileMoveZone = tileMoveZone;
+            _tileSpecialZone = tileSpecialZone;
             _inputController = inputController;
             _listUnits = listUnits;
             lastRoundForCycle = 0;
@@ -29,7 +32,7 @@ namespace TBS
                     _checStep = _listUnits[i].GetNextStep();
                     if (_checStep <= 0)
                     {
-                        _tileMoveZone.CreateMoveZone(_listUnits[i].GetPosition(), _listUnits[i].GetLenghtStep(), this._listUnits);
+                        _tileSpecialZone.CreateMoveZone(_listUnits[i].GetPosition(), _listUnits[i].GetLenghtStep(), _listUnits[i].GetZoneAtack(), _listUnits);
                         _inputController.SetUnit(_listUnits[i]);
                         _inputController.SwitchDoing();
                         lastRoundForCycle = i++;
@@ -42,7 +45,7 @@ namespace TBS
                 }
                 lastRoundForCycle = 0;
             }
-        }
+        }        
     }
 }
 

@@ -79,8 +79,12 @@
     <Compile Include="Assets\Skripts\Pool\RainDrops.cs" />
     <Compile Include="Assets\Skripts\Tile\TileGround.cs" />
     <Compile Include="Assets\Skripts\Tile\TileMoveZone.cs" />
+    <Compile Include="Assets\Skripts\Tile\TileSpecialZone.cs" />
+    <Compile Include="Assets\Skripts\UI\ButtonUI.cs" />
     <Compile Include="Assets\Skripts\Units\Enemy\EnemyGuards.cs" />
+    <Compile Include="Assets\Skripts\Units\ListUnits.cs" />
     <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerGuards.cs" />
+    <Compile Include="Assets\Skripts\Units\SwitchModeUnits.cs" />
     <Compile Include="Assets\Skripts\Units\Units.cs" />
     <Compile Include="Assets\Skripts\Units\mathOfUnits\MathOfUnits.cs" />
     <Compile Include="Assets\Skripts\factory\TileMoveZoneFactory.cs" />
