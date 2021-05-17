@@ -12110,6 +12110,11 @@ PrefabInstance:
       propertyPath: _zoneAtack
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2597553974697161137, guid: a8f94860c76910b47bd7a9d2a1fe6197,
+        type: 3}
+      propertyPath: Father
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2597553974697161139, guid: a8f94860c76910b47bd7a9d2a1fe6197,
         type: 3}
       propertyPath: m_LocalPosition.x

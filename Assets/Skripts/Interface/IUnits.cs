@@ -12,8 +12,8 @@ namespace TBS
         Vector3 GetPosition();
         void SetPosition(Vector3 newpos);
         float GetHP();
-        float GetATK();
+        void GetATK(IUnits units);
         int GetZoneAtack();
-        void SetDamage(float damage);
+        void SetDamage(float damage, string typeAttack);
     }
 }

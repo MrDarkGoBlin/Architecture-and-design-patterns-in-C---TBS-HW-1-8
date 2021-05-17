@@ -13,11 +13,11 @@ namespace TBS
         public abstract void ReturnStep();
         public abstract void MinusStep();
         public abstract float GetHP();
-        public abstract float GetATK();
+        public abstract void GetATK(IUnits units);
         public abstract int GetZoneAtack();
         public abstract Vector3 GetPosition();
         public abstract void SetPosition(Vector3 newpos);
-        public abstract void SetDamage(float damage);
+        public abstract void SetDamage(float damage, string typeAttack);
 
 
 
