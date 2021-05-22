@@ -3,9 +3,10 @@ using UnityEngine.Tilemaps;
 
 namespace TBS
 {
-    public interface IFactory
+    internal interface IFactory
     {
-        void CreateZoneOfMuve(Vector3 playerPosition, int langthStep, ListUnits units);
-        void DestroyZoneOfMuve();
+        void CreateSpecialZone(Vector3 playerPosition, int langthStep, ListUnits units);
+        void CreateSpecialZone(Vector3 playerPosition, int AttackZone, int NoAttackZone, ListUnits units);
+        void DestroyZone();
     }
 }

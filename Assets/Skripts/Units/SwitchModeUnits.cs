@@ -12,6 +12,8 @@ namespace TBS
         {
             attack,
             move,
+            skill1,
+            skill2,
         }        
     }
 }

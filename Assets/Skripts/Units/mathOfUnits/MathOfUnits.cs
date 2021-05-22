@@ -2,23 +2,32 @@
 
 namespace TBS
 {
-    class MathOfUnits
+    public class MathOfUnits
     {
-        internal int MinusOneStep(int step) 
+        public enum AttackType
+        {
+            Melle,
+            Magick,
+            Cure
+        }
+        public int MinusOneStep(int step) 
         {
             var _step = step - 1;
             return _step; 
         }
-        internal float MinusHP(float hp, float defance, float attak, string typeAttack)
+        public float MinusHP(float hp, float defance, float attak, AttackType typeAttack)
         {
             float value = 0;
             switch (typeAttack)
             {
-                case "Melee":
+                case AttackType.Melle:
                     value = hp - (attak * (100 / (defance + 100)));
                     break;
-                case "Magic":
+                case AttackType.Magick:
                     value = hp - (attak * (100 / (defance/2 + 100)));
+                    break;
+                case AttackType.Cure:
+                    value = hp + attak;
                     break;
                 default:
                     break;
