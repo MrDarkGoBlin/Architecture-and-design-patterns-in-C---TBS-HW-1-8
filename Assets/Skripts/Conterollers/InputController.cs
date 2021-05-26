@@ -6,7 +6,7 @@ namespace TBS
     internal class InputController : IExecute
     {
         private IUnits _unit;
-        private SwitchModeUnits.SwitchMode _switchMode;
+        private SwitchMode _switchMode;
         private Camera _mainCamera;
 
         private bool _chekAction;
@@ -17,7 +17,7 @@ namespace TBS
         public InputController( Camera camera)
         {
             _chekAction = false;
-            _switchMode = SwitchModeUnits.SwitchMode.move;
+            _switchMode = SwitchMode.move;
             _mainCamera = camera;
         }
 
@@ -40,7 +40,7 @@ namespace TBS
         }
         
         
-        public void SwitchAction(SwitchModeUnits.SwitchMode switchMode)
+        public void SwitchAction(SwitchMode switchMode)
         {
             _switchMode = switchMode;
             _unit.SwitchActionMod(_switchMode);

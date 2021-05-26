@@ -21,7 +21,7 @@ namespace TBS
             _tileSpecialZone = tileSpecialZone;
         }
 
-        public override void SetDamage(float damage, MathOfUnits.AttackType typeAttack)
+        public override void SetDamage(float damage, AttackType typeAttack)
         {
             
             _HP = _mathOfUnits.MinusHP(_HP, _DEF, damage, typeAttack);

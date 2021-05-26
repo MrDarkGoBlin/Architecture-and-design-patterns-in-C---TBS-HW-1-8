@@ -35,7 +35,7 @@ namespace TBS
                     if (_checStep <= 0)
                     {
                         _inputController.SetUnit(_listUnits[i]);
-                        _inputController.SwitchAction(SwitchModeUnits.SwitchMode.move);
+                        _inputController.SwitchAction(SwitchMode.move);
                         _inputController.SwitchDoing();
                         _buttonUI.MoveClick();
                         lastRoundForCycle = i++;

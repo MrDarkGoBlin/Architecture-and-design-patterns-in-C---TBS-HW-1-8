@@ -11,7 +11,7 @@ namespace TBS
         Vector3 GetPosition();
         float GetHP();
         bool Action(Vector3 value);
-        void SetDamage(float damage, MathOfUnits.AttackType attackType);
-        void SwitchActionMod(SwitchModeUnits.SwitchMode switchAction);
+        void SetDamage(float damage, AttackType attackType);
+        void SwitchActionMod(SwitchMode switchAction);
     }
 }
