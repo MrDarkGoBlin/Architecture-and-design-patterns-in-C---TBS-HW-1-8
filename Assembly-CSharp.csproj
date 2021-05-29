@@ -67,6 +67,22 @@
     <Compile Include="Assets\Skripts\Conterollers\InputController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\TimeController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\UpdateController.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets\Skripts\HW8\Observer\IHit.cs" />
+    <Compile Include="Assets\Skripts\HW8\Observer\ListenerHitShowDamage.cs" />
+    <Compile Include="Assets\Skripts\HW8\Observer\ObserverTest.cs" />
+    <Compile Include="Assets\Skripts\HW8\Observer\viewHit.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\IAction.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\InputController.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\MoveDown.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\MoveLeft.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\MoveRight.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\MoveStop.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\MoveUp.cs" />
+    <Compile Include="Assets\Skripts\HW8\State\PlayerMove.cs" />
+    <Compile Include="Assets\Skripts\Interface\IAttack.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\Skripts\Interface\IExecute.cs" />
     <Compile Include="Assets\Skripts\Interface\IFactory.cs" />
     <Compile Include="Assets\Skripts\Interface\IUnits.cs" />

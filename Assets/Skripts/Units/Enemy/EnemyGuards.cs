@@ -21,7 +21,23 @@ namespace TBS
         {
             ReturnStep();
             _HP = _maxHP;
+<<<<<<< Updated upstream
             _mathOfUnits = new MathOfUnits();
+=======
+            _listUnits = listUnits;
+            _tileSpecialZone = tileSpecialZone;
+        }
+
+        public override bool SetDamage(float damage, AttackType typeAttack)
+        {
+            
+            _HP = _mathOfUnits.MinusHP(_HP, _DEF, damage, typeAttack);
+            if (_HP == 0)
+            {
+                Death();
+            }
+            return true;
+>>>>>>> Stashed changes
         }
 
         public override int GetLenghtStep() => _lengthStep;
