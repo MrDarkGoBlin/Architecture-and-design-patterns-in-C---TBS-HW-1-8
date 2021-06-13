@@ -4,13 +4,14 @@ namespace TBS
 {
     public interface IUnits
     {
-        int GetLenghtStep();
+        void Inicialisation(ListUnits listUnits, TileSpecialZone tileSpecialZone);
         int GetNextStep();
         void ReturnStep();
         void MinusStep();
-        float GetHP();
-        float GetATK();
         Vector3 GetPosition();
-        void SetPosition(Vector3 newpos);
+        float GetHP();
+        bool Action(Vector3 value);
+        void SetDamage(float damage, MathOfUnits.AttackType attackType);
+        void SwitchActionMod(SwitchModeUnits.SwitchMode switchAction);
     }
 }

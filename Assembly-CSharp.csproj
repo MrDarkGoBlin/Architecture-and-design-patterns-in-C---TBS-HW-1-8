@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.8.2.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.9.1.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2019.3.4f1</UnityVersion>
@@ -67,8 +67,10 @@
     <Compile Include="Assets\Skripts\Conterollers\InputController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\TimeController.cs" />
     <Compile Include="Assets\Skripts\Conterollers\UpdateController.cs" />
+    <Compile Include="Assets\Skripts\Interface\IAttack.cs" />
     <Compile Include="Assets\Skripts\Interface\IExecute.cs" />
     <Compile Include="Assets\Skripts\Interface\IFactory.cs" />
+    <Compile Include="Assets\Skripts\Interface\ISkills.cs" />
     <Compile Include="Assets\Skripts\Interface\IUnits.cs" />
     <Compile Include="Assets\Skripts\ListExecuteObject.cs" />
     <Compile Include="Assets\Skripts\Pool\IPooldObject.cs" />
@@ -78,12 +80,20 @@
     <Compile Include="Assets\Skripts\Pool\PusherRainDrop.cs" />
     <Compile Include="Assets\Skripts\Pool\RainDrops.cs" />
     <Compile Include="Assets\Skripts\Tile\TileGround.cs" />
-    <Compile Include="Assets\Skripts\Tile\TileMoveZone.cs" />
+    <Compile Include="Assets\Skripts\Tile\TileSpecialZone.cs" />
+    <Compile Include="Assets\Skripts\UI\ButtonUI.cs" />
     <Compile Include="Assets\Skripts\Units\Enemy\EnemyGuards.cs" />
-    <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerGuards.cs" />
+    <Compile Include="Assets\Skripts\Units\ListUnits.cs" />
+    <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerUnit.cs" />
+    <Compile Include="Assets\Skripts\Units\Skilss\DamageSkillss.cs" />
+    <Compile Include="Assets\Skripts\Units\Skilss\HighHitSkill.cs" />
+    <Compile Include="Assets\Skripts\Units\Skilss\LowHitSkill.cs" />
+    <Compile Include="Assets\Skripts\Units\SwitchModeUnits.cs" />
+    <Compile Include="Assets\Skripts\Units\UnitActions\MagiсAttak.cs" />
+    <Compile Include="Assets\Skripts\Units\UnitActions\MeleeAttack.cs" />
     <Compile Include="Assets\Skripts\Units\Units.cs" />
     <Compile Include="Assets\Skripts\Units\mathOfUnits\MathOfUnits.cs" />
-    <Compile Include="Assets\Skripts\factory\TileMoveZoneFactory.cs" />
+    <Compile Include="Assets\Skripts\factory\TileSpecialZoneFactory.cs" />
     <None Include="Assets\Sprites\charactersSprites\Female adventurer\Tilesheet\character_femaleAdventurer_sheetHD.xml" />
     <None Include="Assets\Sprites\charactersSprites\Female person\Tilesheet\character_femalePerson_sheet.xml" />
     <None Include="Assets\Sprites\charactersSprites\Robot\Tilesheet\character_robot_sheet.xml" />

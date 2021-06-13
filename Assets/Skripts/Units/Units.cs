@@ -7,14 +7,95 @@ namespace TBS
 {
     internal abstract class Units : MonoBehaviour, IUnits
     {
-        public abstract int GetLenghtStep();
-        public abstract int GetNextStep();
-        public abstract void ReturnStep();
-        public abstract void MinusStep();
-        public abstract float GetHP();
-        public abstract float GetATK();
-        public abstract Vector3 GetPosition();
-        public abstract void SetPosition(Vector3 newpos);
+        private protected MathOfUnits _mathOfUnits;
+        private protected ListUnits _listUnits;
+        private protected TileSpecialZone _tileSpecialZone;
+        private SwitchModeUnits.SwitchMode _switchAction;
+        private protected IAttack _attack;
+        private protected ISkills _skills1;
+        private protected ISkills _skills2;
+
+        [SerializeField] private protected float _maxHP;
+        [SerializeField] private protected int _speadStep;
+        [SerializeField] private protected int _lengthStep;
+        [SerializeField] private protected float _DEF;
+        [SerializeField] private protected float _ATK;
+        [SerializeField] private protected float _HP;
+        [SerializeField] private protected int _nextStep;
+        [SerializeField] private protected int _zoneAtack;
+        [SerializeField] private protected int _zoneNoAtack;
+        [SerializeField] private protected bool _checkAction;
+
+
+
+        public abstract void Inicialisation(ListUnits listUnits, TileSpecialZone tileSpecialZone);
+        public  int GetNextStep() => _nextStep;
+        public  void MinusStep() => _nextStep = _mathOfUnits.MinusOneStep(_nextStep);
+        public  void ReturnStep() => _nextStep = _speadStep;
+        public  float GetHP() => _HP;
+        public abstract void SetDamage(float damage, MathOfUnits.AttackType attackType);
+        public Vector3 GetPosition() => transform.position;
+        public bool Action(Vector3 value)
+        {
+            _checkAction = false;
+            switch (_switchAction)
+            {
+                case SwitchModeUnits.SwitchMode.move:
+                    Vector3 newpos = _tileSpecialZone.Move(transform.position, value);
+                    if (transform.position != newpos)
+                    {
+                        transform.position = newpos;
+                        ReturnStep();
+                        _checkAction = true;
+                    }                    
+                    ;
+                    break;
+                case SwitchModeUnits.SwitchMode.attack:
+                    if (_tileSpecialZone.Atack(value) != null)
+                    {
+                        _attack.Attack(_tileSpecialZone.Atack(value), _ATK);
+                        ReturnStep();
+                        _checkAction = true;
+                    }                    
+                    break;
+                case SwitchModeUnits.SwitchMode.skill1:
+                    _checkAction = _skills1.Action(value);
+                    ReturnStep();
+                    break;
+                case SwitchModeUnits.SwitchMode.skill2:
+                    _checkAction = _skills2.Action(value);
+                    ReturnStep();
+                    break;
+                default:                   
+                    break;
+            }
+            return _checkAction;
+        }
+
+        public void SwitchActionMod(SwitchModeUnits.SwitchMode switchAction)
+        {
+            _switchAction = switchAction;
+            switch (_switchAction)
+            {
+                case SwitchModeUnits.SwitchMode.move:
+                    _tileSpecialZone.CreateZone(transform.position, _lengthStep);
+                    break;
+                case SwitchModeUnits.SwitchMode.attack:
+                    _tileSpecialZone.CreateZone(transform.position, _zoneAtack);
+                    break;
+                case SwitchModeUnits.SwitchMode.skill1:
+                    _skills2.CreateZoneAction(transform.position);
+                    break;
+                case SwitchModeUnits.SwitchMode.skill2:
+                    _skills2.CreateZoneAction(transform.position);
+                    break;
+                default:
+                    break;
+            }
+            
+
+        }
+
 
 
 

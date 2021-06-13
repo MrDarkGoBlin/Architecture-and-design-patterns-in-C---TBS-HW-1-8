@@ -1,46 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace TBS
 {
     internal class InputController : IExecute
     {
-        private TileMoveZone _tile;
         private IUnits _unit;
-        private bool _doing;
-        private Vector3 _checkSwitchPosition;
+        private SwitchModeUnits.SwitchMode _switchMode;
+        private Camera _mainCamera;
 
-        public InputController(TileMoveZone tile)
+        private bool _chekAction;
+        private bool _action;
+
+
+
+        public InputController( Camera camera)
         {
-            _tile = tile;
-            _doing = false;
+            _chekAction = false;
+            _switchMode = SwitchModeUnits.SwitchMode.move;
+            _mainCamera = camera;
         }
 
         public void Execute()
         {
-            if (_doing)
+            if (_chekAction)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _checkSwitchPosition = _tile.Move(_unit.GetPosition());
-                    if (_checkSwitchPosition != _unit.GetPosition())
+                    Vector3 clicworld = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                    clicworld.z = 0;
+                    _action = _unit.Action(clicworld);
+                    if (_action)
                     {
-                        _unit.SetPosition(_checkSwitchPosition);
-                        _unit.ReturnStep();
-                        SwitchDoing();
+                        _chekAction = false;
                     }
                     
-                }                
-            }     
+                }
+            }
         }
-
-        public bool getDoing() => _doing;
-        public void SwitchDoing() => _doing = !_doing;
+        
+        
+        public void SwitchAction(SwitchModeUnits.SwitchMode switchMode)
+        {
+            _switchMode = switchMode;
+            _unit.SwitchActionMod(_switchMode);
+        }
+        public bool getDoing() => _chekAction;
+        public void SwitchDoing() => _chekAction = true;
         public void SetUnit(IUnits newUnit) => _unit = newUnit;
-    }
-    
 
+        
+    }
 }
+
+    
 

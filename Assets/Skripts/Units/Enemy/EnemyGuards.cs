@@ -1,37 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace TBS
 {
     internal class EnemyGuards : Units
     {
-        private MathOfUnits _mathOfUnits;
+        private EnemyGuards _enemyGuards;
+        
 
-        internal readonly float _maxHP;
-        internal readonly int _speadStep;
-        internal readonly int _lengthStep;
-        internal float _HP;
-        internal float _DEF;
-        internal float _ATK;
-        internal int _nextStep;
 
-        private void Start()
+        public override void Inicialisation(ListUnits listUnits, TileSpecialZone tileSpecialZone)
         {
+            _attack = new MeleeAttack();
+            _enemyGuards.GetComponent<EnemyGuards>();
+
             ReturnStep();
-            _HP = _maxHP;
             _mathOfUnits = new MathOfUnits();
+            _HP = _maxHP;
+            _listUnits = listUnits;
+            _tileSpecialZone = tileSpecialZone;
         }
 
-        public override int GetLenghtStep() => _lengthStep;
-        public override int GetNextStep() => _nextStep;
-        public override void MinusStep() => _nextStep = _mathOfUnits.MinusOneStep(_nextStep);
-        public override void ReturnStep() => _nextStep = _speadStep;
-        public override float GetHP() => _HP;
-        public override float GetATK() => _ATK;
-        public override Vector3 GetPosition() => transform.position;
-        public override void SetPosition(Vector3 newpos) => transform.position = newpos;
+        public override void SetDamage(float damage, MathOfUnits.AttackType typeAttack)
+        {
+            
+            _HP = _mathOfUnits.MinusHP(_HP, _DEF, damage, typeAttack);
+            if (_HP == 0)
+            {
+                Death();
+            }
+        }
+
+        private void Death()
+        {
+            _listUnits.ClearUnits(_enemyGuards);
+            Destroy(this);
+        }
     }
 }
 
