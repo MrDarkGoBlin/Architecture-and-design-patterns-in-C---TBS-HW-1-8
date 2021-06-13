@@ -21,13 +21,13 @@ namespace TBS
         }
         public void MoveClick()
         {
-            _inputController.SwitchAction(SwitchModeUnits.SwitchMode.move);
+            _inputController.SwitchAction(SwitchMode.move);
             OnButton();
             _buttonMove.interactable = false;
         }
         public void AtackClick()
         {
-            _inputController.SwitchAction(SwitchModeUnits.SwitchMode.attack);
+            _inputController.SwitchAction(SwitchMode.attack);
             OnButton();
             _buttonAttack.interactable = false;
         }
@@ -35,14 +35,14 @@ namespace TBS
         public void Skil1()
         {
 
-            _inputController.SwitchAction(SwitchModeUnits.SwitchMode.skill1);
+            _inputController.SwitchAction(SwitchMode.skill1);
             OnButton();
             _buttonSkill1.interactable = false;
         }
         public void Skil2()
         {
 
-            _inputController.SwitchAction(SwitchModeUnits.SwitchMode.skill2);
+            _inputController.SwitchAction(SwitchMode.skill2);
             OnButton();
             _buttonSkill2.interactable = false;
         }

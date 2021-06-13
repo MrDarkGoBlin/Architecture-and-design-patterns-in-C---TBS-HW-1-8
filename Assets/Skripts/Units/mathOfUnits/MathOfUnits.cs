@@ -4,12 +4,7 @@ namespace TBS
 {
     public class MathOfUnits
     {
-        public enum AttackType
-        {
-            Melle,
-            Magick,
-            Cure
-        }
+        
         public int MinusOneStep(int step) 
         {
             var _step = step - 1;

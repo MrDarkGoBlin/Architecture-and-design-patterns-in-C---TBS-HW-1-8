@@ -73,6 +73,9 @@
     <Compile Include="Assets\Skripts\Interface\ISkills.cs" />
     <Compile Include="Assets\Skripts\Interface\IUnits.cs" />
     <Compile Include="Assets\Skripts\ListExecuteObject.cs" />
+    <Compile Include="Assets\Skripts\Memento\PointInTime.cs" />
+    <Compile Include="Assets\Skripts\Memento\TimeBody.cs" />
+    <Compile Include="Assets\Skripts\Memento\TimeMath.cs" />
     <Compile Include="Assets\Skripts\Pool\IPooldObject.cs" />
     <Compile Include="Assets\Skripts\Pool\MathOfPoolTest.cs" />
     <Compile Include="Assets\Skripts\Pool\ObjectPooler.cs" />
@@ -82,6 +85,9 @@
     <Compile Include="Assets\Skripts\Tile\TileGround.cs" />
     <Compile Include="Assets\Skripts\Tile\TileSpecialZone.cs" />
     <Compile Include="Assets\Skripts\UI\ButtonUI.cs" />
+    <Compile Include="Assets\Skripts\UI\NumbersInterpritator.cs" />
+    <Compile Include="Assets\Skripts\UI\UIOutputNumbersInterpritator.cs" />
+    <Compile Include="Assets\Skripts\Units\AttackType.cs" />
     <Compile Include="Assets\Skripts\Units\Enemy\EnemyGuards.cs" />
     <Compile Include="Assets\Skripts\Units\ListUnits.cs" />
     <Compile Include="Assets\Skripts\Units\PlayersUnits\PlayerUnit.cs" />

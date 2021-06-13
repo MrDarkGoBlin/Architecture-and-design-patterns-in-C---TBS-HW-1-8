@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace TBS
 {
-    public class SwitchModeUnits
-    {
         public enum SwitchMode // не знаю, надо ли выносить из класса это перечисление.
         {
             attack,
@@ -15,5 +13,5 @@ namespace TBS
             skill1,
             skill2,
         }        
-    }
+    
 }

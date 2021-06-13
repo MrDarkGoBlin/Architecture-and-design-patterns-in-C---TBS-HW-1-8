@@ -25,7 +25,7 @@ namespace TBS
 
         }
         
-        public override void SetDamage(float damage, MathOfUnits.AttackType attackType) 
+        public override void SetDamage(float damage, AttackType attackType) 
         { 
             _HP = _mathOfUnits.MinusHP(_HP, _DEF, damage, attackType);
             if (_HP == 0)
